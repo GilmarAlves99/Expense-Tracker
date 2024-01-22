@@ -6,7 +6,7 @@ const {
     update
 } = require("../controllers/user")
 
-exports.useRoutes= app=>{
+exports.userRoutes= app=>{
     app.post("/user",create);
     app.get("/user",get);
     app.get("/user/:id",getId);

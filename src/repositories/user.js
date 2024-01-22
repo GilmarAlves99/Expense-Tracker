@@ -6,7 +6,7 @@ exports.createUser = async (data) => {
             id: true,
             name: true,
             email: true,
-            password: false
+            password: true
         }
     });
     return user
