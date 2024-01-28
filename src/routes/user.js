@@ -5,11 +5,14 @@ const {
     remove,
     update
 } = require("../controllers/user")
+const { verifyToken } = require("../middlewares/auth");
 
-exports.useRoutes= app=>{
-    app.post("/user",create);
-    app.get("/user",get);
-    app.get("/user/:id",getId);
-    app.put("/user/:id",update);
-    app.delete("/user/:id",remove);
+
+
+exports.userRoutes = app => {
+    app.post("/user", create);
+    app.get("/user", verifyToken, get);
+    app.get("/user/:id", verifyToken, getId);
+    app.put("/user/:id", verifyToken, update);
+    app.delete("/user/:id", verifyToken, remove);
 };
